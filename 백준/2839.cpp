@@ -1,16 +1,24 @@
 #include <iostream>
 
 int main(void) {
-    int user_input = 0, count = 0;
-    int kg_type[2] = {5, 3};
-    
+    int user_input = 0;
+    int a,b;
+
     std::cin >> user_input;
-    for(int i=0; i<2; i++) {
-        count += user_input / kg_type[i];
-        user_input = user_input % kg_type[i];
+
+    a = user_input/5;
+    while(1) {
+        if(a<0) {
+            std::cout << -1 << std::endl;
+            return 0;
+        } else if((user_input-(5*a))%3 == 0) {
+            b = (user_input-(5*a))/3;
+            break;
+        }
+        a--;
     }
 
-    std::cout << count << std::endl;
+    std::cout << a+b;
 
     return 0;
 }
